@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "skills": [
+    {"slug": "python", "name": "Python", "category": "programming_language", "aliases": ["Python 3"]},
+    {"slug": "sql", "name": "SQL", "category": "programming_language", "aliases": ["Structured Query Language"]},
+    {"slug": "r", "name": "R", "category": "programming_language", "aliases": ["R language"]},
+    {"slug": "java", "name": "Java", "category": "programming_language", "aliases": []},
+    {"slug": "javascript", "name": "JavaScript", "category": "programming_language", "aliases": ["JavaScript ES6"]},
+    {"slug": "typescript", "name": "TypeScript", "category": "programming_language", "aliases": []},
+
+    {"slug": "postgresql", "name": "PostgreSQL", "category": "database", "aliases": ["Postgres"]},
+    {"slug": "mysql", "name": "MySQL", "category": "database", "aliases": []},
+    {"slug": "sql_server", "name": "SQL Server", "category": "database", "aliases": ["Microsoft SQL Server", "MSSQL"]},
+    {"slug": "mongodb", "name": "MongoDB", "category": "database", "aliases": []},
+    {"slug": "oracle_database", "name": "Oracle Database", "category": "database", "aliases": ["Oracle DB"]},
+    {"slug": "snowflake", "name": "Snowflake", "category": "database", "aliases": []},
+    {"slug": "bigquery", "name": "BigQuery", "category": "database", "aliases": ["Google BigQuery"]},
+
+    {"slug": "power_bi", "name": "Power BI", "category": "bi_tool", "aliases": ["PowerBI", "Microsoft Power BI"]},
+    {"slug": "tableau", "name": "Tableau", "category": "bi_tool", "aliases": ["Tableau Software"]},
+    {"slug": "looker", "name": "Looker", "category": "bi_tool", "aliases": ["Looker Studio", "Google Data Studio"]},
+    {"slug": "qlik", "name": "Qlik", "category": "bi_tool", "aliases": ["Qlik Sense", "QlikView"]},
+    {"slug": "excel", "name": "Excel", "category": "productivity", "aliases": ["Microsoft Excel", "MS Excel"]},
+
+    {"slug": "spark", "name": "Apache Spark", "category": "data_engineering", "aliases": ["Spark", "PySpark"]},
+    {"slug": "airflow", "name": "Apache Airflow", "category": "data_engineering", "aliases": ["Airflow"]},
+    {"slug": "kafka", "name": "Apache Kafka", "category": "data_engineering", "aliases": ["Kafka"]},
+    {"slug": "dbt", "name": "dbt", "category": "data_engineering", "aliases": ["data build tool"]},
+    {"slug": "databricks", "name": "Databricks", "category": "data_engineering", "aliases": []},
+    {"slug": "hadoop", "name": "Apache Hadoop", "category": "data_engineering", "aliases": ["Hadoop"]},
+
+    {"slug": "aws", "name": "AWS", "category": "cloud", "aliases": ["Amazon Web Services"]},
+    {"slug": "azure", "name": "Microsoft Azure", "category": "cloud", "aliases": ["Azure"]},
+    {"slug": "gcp", "name": "Google Cloud Platform", "category": "cloud", "aliases": ["GCP", "Google Cloud"]},
+
+    {"slug": "docker", "name": "Docker", "category": "devops", "aliases": []},
+    {"slug": "kubernetes", "name": "Kubernetes", "category": "devops", "aliases": ["K8s"]},
+    {"slug": "terraform", "name": "Terraform", "category": "devops", "aliases": []},
+    {"slug": "github_actions", "name": "GitHub Actions", "category": "devops", "aliases": []},
+    {"slug": "gitlab_ci", "name": "GitLab CI/CD", "category": "devops", "aliases": ["GitLab CI"]},
+
+    {"slug": "git", "name": "Git", "category": "version_control", "aliases": []},
+    {"slug": "react", "name": "React", "category": "framework", "aliases": ["React.js", "ReactJS"]},
+    {"slug": "angular", "name": "Angular", "category": "framework", "aliases": ["AngularJS"]},
+    {"slug": "vue", "name": "Vue.js", "category": "framework", "aliases": ["Vue", "VueJS"]},
+    {"slug": "node_js", "name": "Node.js", "category": "framework", "aliases": ["NodeJS", "Node JS"]},
+    {"slug": "spring_boot", "name": "Spring Boot", "category": "framework", "aliases": ["SpringBoot"]},
+    {"slug": "django", "name": "Django", "category": "framework", "aliases": []},
+    {"slug": "fastapi", "name": "FastAPI", "category": "framework", "aliases": ["Fast API"]},
+
+    {"slug": "agile", "name": "Agile", "category": "methodology", "aliases": ["méthode agile", "methodologie agile"]},
+    {"slug": "scrum", "name": "Scrum", "category": "methodology", "aliases": []}
+  ]
+}
