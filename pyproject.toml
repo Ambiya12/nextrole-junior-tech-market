@@ -28,7 +28,7 @@ nextrole = "nextrole.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-nextrole = ["taxonomy/*.json"]
+nextrole = ["taxonomy/*.json", "warehouse/migrations/*.sql"]
 
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib --strict-config --strict-markers --cov=nextrole --cov-report=term-missing --cov-fail-under=90"
