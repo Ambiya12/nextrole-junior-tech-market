@@ -46,6 +46,13 @@ class WorkMode(StrEnum):
     UNKNOWN = "unknown"
 
 
+class SalaryPeriod(StrEnum):
+    YEARLY = "yearly"
+    MONTHLY = "monthly"
+    HOURLY = "hourly"
+    UNKNOWN = "unknown"
+
+
 class JobPostingBase(BaseModel):
     """Fields and validation rules shared across pipeline stages."""
 
@@ -85,6 +92,7 @@ class NormalizedJobPosting(JobPostingBase):
     salary_min: Annotated[float | None, Field(ge=0)] = None
     salary_max: Annotated[float | None, Field(ge=0)] = None
     salary_currency: Annotated[str | None, Field(pattern=r"^[A-Z]{3}$")] = None
+    salary_period: SalaryPeriod | None = None
 
     @model_validator(mode="after")
     def salary_range_is_ordered(self) -> Self:

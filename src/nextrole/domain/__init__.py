@@ -6,6 +6,7 @@ from nextrole.domain.models import (
     NormalizedJobPosting,
     RawJobPosting,
     RoleFamily,
+    SalaryPeriod,
     WorkMode,
 )
 
@@ -15,5 +16,6 @@ __all__ = [
     "NormalizedJobPosting",
     "RawJobPosting",
     "RoleFamily",
+    "SalaryPeriod",
     "WorkMode",
 ]
