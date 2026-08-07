@@ -1,0 +1,14 @@
+{
+  "resultats": [
+    {
+      "id": "198IJKL",
+      "intitule": "Développeur Backend Junior",
+      "description": "Développement de services Java et Spring Boot.",
+      "dateCreation": "2026-08-03T08:45:00+00:00",
+      "entreprise": {"nom": "Example Software"},
+      "lieuTravail": {"libelle": "31 - TOULOUSE"},
+      "typeContratLibelle": "CDD 12 Mois",
+      "teletravail": "Ponctuel"
+    }
+  ]
+}

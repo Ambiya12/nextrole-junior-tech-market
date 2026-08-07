@@ -1,0 +1,24 @@
+{
+  "resultats": [
+    {
+      "id": "198ABCD",
+      "intitule": "Data Analyst Junior H/F",
+      "description": "Vous analysez les données avec SQL et Power BI.",
+      "dateCreation": "2026-08-01T09:30:00+00:00",
+      "entreprise": {"nom": "Example Analytics"},
+      "lieuTravail": {"libelle": "75 - PARIS 01"},
+      "typeContratLibelle": "CDI",
+      "salaire": {"libelle": "Annuel de 35000.0 Euros à 42000.0 Euros"},
+      "teletravail": "Hybride",
+      "origineOffre": {"urlOrigine": "https://example.test/jobs/198ABCD"}
+    },
+    {
+      "id": "198EFGH",
+      "intitule": "Data Engineer en alternance",
+      "description": "Construisez des pipelines Python, SQL et Airflow.",
+      "dateCreation": "2026-08-02T10:15:00+00:00",
+      "lieuTravail": {"libelle": "69 - LYON 03"},
+      "typeContratLibelle": "Contrat d'apprentissage"
+    }
+  ]
+}

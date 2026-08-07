@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Junior technology job market analytics pipeline for France"
 requires-python = ">=3.12,<3.15"
 dependencies = [
+    "httpx>=0.28,<1",
     "pydantic>=2.11,<3",
     "pydantic-settings>=2.10,<3",
 ]
