@@ -9,6 +9,7 @@ description = "Junior technology job market analytics pipeline for France"
 requires-python = ">=3.12,<3.15"
 dependencies = [
     "httpx>=0.28,<1",
+    "psycopg[binary]>=3.2,<4",
     "pydantic>=2.11,<3",
     "pydantic-settings>=2.10,<3",
 ]
@@ -33,6 +34,9 @@ nextrole = ["taxonomy/*.json", "warehouse/migrations/*.sql"]
 [tool.pytest.ini_options]
 addopts = "--import-mode=importlib --strict-config --strict-markers --cov=nextrole --cov-report=term-missing --cov-fail-under=90"
 testpaths = ["tests"]
+markers = [
+    "integration: requires an explicitly configured external service",
+]
 
 [tool.coverage.run]
 branch = true
