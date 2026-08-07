@@ -31,7 +31,7 @@ where = ["src"]
 nextrole = ["taxonomy/*.json"]
 
 [tool.pytest.ini_options]
-addopts = "--strict-config --strict-markers --cov=nextrole --cov-report=term-missing --cov-fail-under=90"
+addopts = "--import-mode=importlib --strict-config --strict-markers --cov=nextrole --cov-report=term-missing --cov-fail-under=90"
 testpaths = ["tests"]
 
 [tool.coverage.run]
