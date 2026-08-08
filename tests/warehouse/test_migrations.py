@@ -32,8 +32,10 @@ class FakeConnection:
 
 
 def test_bundled_migration_defines_constrained_warehouse_tables() -> None:
-    migration = load_migrations()[0]
+    migrations = load_migrations()
+    migration = migrations[0]
 
+    assert [item.version for item in migrations] == [1, 2]
     assert migration.version == 1
     assert migration.name == "001_create_core_schema.sql"
     assert len(migration.checksum) == 64
@@ -46,6 +48,23 @@ def test_bundled_migration_defines_constrained_warehouse_tables() -> None:
         "rejected_records",
     ):
         assert f"CREATE TABLE {table}" in migration.sql
+
+
+def test_analytics_migration_defines_dashboard_views() -> None:
+    migration = load_migrations()[1]
+
+    assert migration.name == "002_create_analytics_views.sql"
+    for view in (
+        "analytics_market_overview",
+        "analytics_role_summary",
+        "analytics_skill_demand",
+        "analytics_role_skill_demand",
+        "analytics_city_demand",
+        "analytics_skill_transferability",
+        "analytics_skill_pairs",
+        "analytics_job_skill_profile",
+    ):
+        assert f"CREATE OR REPLACE VIEW {view}" in migration.sql
 
 
 def test_apply_migrations_records_pending_migration_and_uses_advisory_lock() -> None:
@@ -61,8 +80,10 @@ def test_apply_migrations_records_pending_migration_and_uses_advisory_lock() -> 
 
 
 def test_apply_migrations_is_a_noop_for_matching_history() -> None:
-    migration = load_migrations()[0]
-    connection = FakeConnection([(migration.version, migration.checksum)])
+    migrations = load_migrations()
+    connection = FakeConnection(
+        [(migration.version, migration.checksum) for migration in migrations]
+    )
 
     assert apply_migrations(connection) == ()
     assert not any("pg_advisory_xact_lock" in sql for sql, _ in connection.executed)
