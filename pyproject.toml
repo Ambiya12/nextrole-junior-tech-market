@@ -9,9 +9,12 @@ description = "Junior technology job market analytics pipeline for France"
 requires-python = ">=3.12,<3.15"
 dependencies = [
     "httpx>=0.28,<1",
+    "pandas>=2.3,<4",
+    "plotly>=6.3,<7",
     "psycopg[binary]>=3.2,<4",
     "pydantic>=2.11,<3",
     "pydantic-settings>=2.10,<3",
+    "streamlit>=1.49,<2",
 ]
 
 [project.optional-dependencies]
