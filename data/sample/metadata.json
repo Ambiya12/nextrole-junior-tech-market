@@ -1,0 +1,8 @@
+{
+  "dataset_kind": "synthetic",
+  "source": "NextRole deterministic demo generator",
+  "seed": 20260807,
+  "job_count": 84,
+  "job_skill_count": 378,
+  "generated_for": "Interface demonstration only; not job-market evidence"
+}

@@ -28,3 +28,13 @@ def test_cli_prints_only_non_secret_configuration(monkeypatch: object, capsys: o
     assert "environment=development" in output
     assert "database_configured=True" in output
     assert "secret" not in output
+
+
+def test_cli_generates_demo_data(tmp_path: object, capsys: object) -> None:
+    output_dir = tmp_path / "sample"  # type: ignore[operator]
+
+    assert main(["demo-data", "--output", str(output_dir)]) == 0
+
+    output = capsys.readouterr().out  # type: ignore[attr-defined]
+    assert "jobs=84" in output
+    assert (output_dir / "jobs.csv").exists()
