@@ -1,6 +1,6 @@
 PYTHON := .venv/bin/python
 
-.PHONY: setup check format lint test
+.PHONY: setup check format lint test demo docker-demo
 
 setup:
 	python3 -m venv .venv
@@ -20,3 +20,9 @@ lint:
 
 test:
 	$(PYTHON) -m pytest
+
+demo:
+	.venv/bin/streamlit run app/streamlit_app.py
+
+docker-demo:
+	docker compose up --build demo
