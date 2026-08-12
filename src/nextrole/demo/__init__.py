@@ -1,12 +1,14 @@
-"""Credential-free portfolio demo support."""
+"""Credential-free dashboard demo support."""
 
 from nextrole.demo.analytics import (
     FilterOptions,
+    JobMatch,
     MarketKpis,
     NextSkillRecommendation,
     RoleMatch,
     filter_jobs,
     market_kpis,
+    match_jobs,
     match_roles,
     recommend_next_skill,
     skill_demand,
@@ -19,6 +21,7 @@ __all__ = [
     "DemoDataset",
     "DemoJob",
     "FilterOptions",
+    "JobMatch",
     "MarketKpis",
     "NextSkillRecommendation",
     "RoleMatch",
@@ -27,6 +30,7 @@ __all__ = [
     "generate_sample_dataset",
     "load_demo_dataset",
     "market_kpis",
+    "match_jobs",
     "match_roles",
     "recommend_next_skill",
     "skill_demand",

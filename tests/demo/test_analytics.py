@@ -7,6 +7,7 @@ from nextrole.demo import (
     filter_jobs,
     load_demo_dataset,
     market_kpis,
+    match_jobs,
     match_roles,
     recommend_next_skill,
     skill_demand,
@@ -60,6 +61,30 @@ def test_matcher_scores_roles_and_recommends_an_unselected_skill(dataset) -> Non
     assert recommendation is not None
     assert recommendation.skill_slug not in selected
     assert recommendation.affected_jobs > 0
+
+
+def test_job_matches_include_every_offer_and_complete_skill_gaps(dataset) -> None:  # type: ignore[no-untyped-def]
+    jobs = tuple(job for job in dataset.jobs if job.role == "data_analyst")
+
+    matches = match_jobs(dataset, jobs, frozenset({"python", "sql", "excel"}))
+
+    assert len(matches) == len(jobs) == 12
+    assert matches[0].coverage_percentage >= matches[-1].coverage_percentage
+    assert all(match.matched_skills or match.missing_skills for match in matches)
+    assert all(set(match.matched_skills).isdisjoint(match.missing_skills) for match in matches)
+    assert {
+        *matches[0].matched_skills,
+        *matches[0].missing_skills,
+    } == {
+        dataset.skill_names[slug]
+        for job in jobs
+        if job.job_id == matches[0].job_id
+        for slug in job.skill_slugs
+    }
+
+    empty_matches = match_jobs(dataset, jobs, frozenset())
+    assert all(match.coverage_percentage == 0 for match in empty_matches)
+    assert all(not match.matched_skills for match in empty_matches)
 
 
 @pytest.mark.parametrize("threshold", [0.0, -0.1, 1.1])

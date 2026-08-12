@@ -27,7 +27,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command")
     subparsers.add_parser("config", help="Show the active non-secret configuration")
     demo_parser = subparsers.add_parser(
-        "demo-data", help="Generate the deterministic synthetic portfolio dataset"
+        "demo-data", help="Generate the deterministic synthetic demo dataset"
     )
     demo_parser.add_argument("--output", type=Path, default=Path("data/sample"))
     subparsers.add_parser("migrate", help="Apply pending PostgreSQL migrations")

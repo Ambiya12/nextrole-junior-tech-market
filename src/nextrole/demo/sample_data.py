@@ -141,7 +141,7 @@ def generate_sample_dataset(output_dir: Path) -> SampleDatasetSummary:
                     ),
                     "work_mode": work_mode,
                     "date_posted": (base_date + timedelta(days=(sequence * 7) % 92)).isoformat(),
-                    "source": "synthetic_portfolio_demo",
+                    "source": "synthetic_demo",
                     "dataset_kind": "synthetic",
                 }
             )

@@ -1,4 +1,4 @@
-"""Validated loading for the credential-free portfolio dataset."""
+"""Validated loading for the credential-free dashboard dataset."""
 
 from __future__ import annotations
 
@@ -108,7 +108,7 @@ def load_demo_dataset(data_dir: Path) -> DemoDataset:
     if any(not job.skill_slugs for job in jobs):
         raise DemoDataError("every demo job must have at least one skill")
     if {job.dataset_kind for job in jobs} != {"synthetic"}:
-        raise DemoDataError("portfolio demo jobs must be explicitly marked synthetic")
+        raise DemoDataError("demo jobs must be explicitly marked synthetic")
 
     return DemoDataset(jobs, skill_names, skill_categories, metadata)
 

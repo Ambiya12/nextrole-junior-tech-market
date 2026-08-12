@@ -66,6 +66,19 @@ class NextSkillRecommendation:
     average_coverage_gain: float
 
 
+@dataclass(frozen=True)
+class JobMatch:
+    job_id: str
+    title: str
+    company: str
+    city: str
+    contract_type: str
+    date_posted: str
+    coverage_percentage: float
+    matched_skills: tuple[str, ...]
+    missing_skills: tuple[str, ...]
+
+
 def filter_jobs(jobs: tuple[DemoJob, ...], filters: FilterOptions) -> tuple[DemoJob, ...]:
     return tuple(
         job
@@ -161,6 +174,42 @@ def match_roles(
         for role, coverages in sorted(
             coverage_by_role.items(),
             key=lambda item: (-sum(item[1]) / len(item[1]), item[0]),
+        )
+    )
+
+
+def match_jobs(
+    dataset: DemoDataset,
+    jobs: tuple[DemoJob, ...],
+    candidate_skills: frozenset[str],
+) -> tuple[JobMatch, ...]:
+    matches = []
+    for job in jobs:
+        matched_slugs = candidate_skills & job.skill_slugs
+        missing_slugs = job.skill_slugs - candidate_skills
+        matches.append(
+            JobMatch(
+                job_id=job.job_id,
+                title=job.title,
+                company=job.company,
+                city=job.city,
+                contract_type=job.contract_type,
+                date_posted=job.date_posted.isoformat(),
+                coverage_percentage=round(100 * len(matched_slugs) / len(job.skill_slugs), 1),
+                matched_skills=tuple(sorted(dataset.skill_names[slug] for slug in matched_slugs)),
+                missing_skills=tuple(sorted(dataset.skill_names[slug] for slug in missing_slugs)),
+            )
+        )
+    return tuple(
+        sorted(
+            matches,
+            key=lambda item: (
+                -item.coverage_percentage,
+                -len(item.matched_skills),
+                item.title,
+                item.company,
+                item.job_id,
+            ),
         )
     )
 
